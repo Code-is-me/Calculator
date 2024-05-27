@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background: linear-gradient(135deg, #ffcc33, #ff66cc);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .calculator input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .calculator input[type="button"]:hover {
+            background-color: #e6e6e6;
+            color: #000;
+        }
+        .calculator input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 24px;
+            text-align: right;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .calculator .operator {
+            background-color: #ff9966;
+            color: #fff;
+        }
+        .calculator .operator:hover {
+            background-color: #ff704d;
+        }
+        .calculator .equals {
+            background-color: #66ccff;
+            color: #fff;
+        }
+        .calculator .equals:hover {
+            background-color: #3399ff;
+        }
+        .calculator .clear {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+        .calculator .clear:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" class="operator" value="/" onclick="addToDisplay('/')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" class="operator" value="*" onclick="addToDisplay('*')">
+        <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" class="operator" value="-" onclick="addToDisplay('-')">
+        <br>
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" class="equals" value="=" onclick="calculate()">
+        <input type="button" class="operator" value="+" onclick="addToDisplay('+')">
+        <br>
+        <input type="button" class="clear" value="C" onclick="clearDisplay()">
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            let expression = document.getElementById('display').value;
+            let result = eval(expression);
+            document.getElementById('display').value = result;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+    </script>
+</body>
+</html>
